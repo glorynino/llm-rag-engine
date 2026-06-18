@@ -1,0 +1,8 @@
+pymupdf
+python-docx
+langchain-text-splitters
+sentence-transformers
+faiss-cpu
+numpy
+llama-cpp-python
+gradio

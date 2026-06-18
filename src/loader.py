@@ -26,12 +26,8 @@ def load_all_documents(folder: str) -> list:
         if path.suffix in [".pdf", ".docx", ".txt"]:
             text = load_document(str(path))
             docs.append({"filename": path.name, "text": text})
-            print(f"✅ Chargé : {path.name}")
+            print(f"Chargé : {path.name}")
     return docs
 
 
-# Test
-if __name__ == "__main__":
-    docs = load_all_documents("docs/")
-    for doc in docs:
-        print(f"\n📄 {doc['filename']} — {len(doc['text'])} caractères")
+
