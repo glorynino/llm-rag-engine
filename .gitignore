@@ -1,0 +1,8 @@
+# Ignore model and index files
+
+# Python env
+venv/
+__pycache__/
+.pytest_cache/
+# Byte-compiled / cache
+*.pyc
