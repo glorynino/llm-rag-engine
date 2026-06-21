@@ -1,4 +1,5 @@
 from llama_cpp import Llama
+from typing import Dict, Any
 
 class LLMClient:
     def __init__(self, model_path: str = "models/qwen2.5-3b-instruct-q4_k_m.gguf"):
@@ -11,7 +12,7 @@ class LLMClient:
         )
 
     def generate(self, context: str, question: str) -> str:
-        response = self.model.create_chat_completion(
+        response = self.model.create_chat_completion(  # type: ignore
             messages=[
                 {
                     "role": "system",
@@ -23,6 +24,8 @@ class LLMClient:
                 }
             ],
             max_tokens=512,
-            temperature=0.2
+            temperature=0.2,
+            stream=False
         )
-        return response["choices"][0]["message"]["content"].strip()
+        content = response["choices"][0]["message"]["content"]  # type: ignore
+        return content.strip() if content else ""
